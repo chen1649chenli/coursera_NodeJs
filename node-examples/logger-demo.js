@@ -1,0 +1,10 @@
+//var log4js = require('/usr/local/lib/node_modules/log4js/lib/log4js.js');
+var log4js = require('log4js');
+log4js.loadAppender('file');
+log4js.addAppender(log4js.appenders.file('/Users/lichen/Desktop/web/coursera_node/node-examples/app.log'),'My Application');
+var logger = log4js.getLogger("My Application");
+logger.info("Application is running");
+logger.warn("Module is outdated!");
+logger.error("Data can't be saved!");
+logger.fatal("Memory leaks ");
+logger.debug("debug message");
