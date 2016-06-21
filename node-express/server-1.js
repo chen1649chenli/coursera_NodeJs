@@ -20,7 +20,7 @@ server.listen(port,hostname, function(){
 var express = require('express');
 var app = express();
 
-app.use('/home.html', function(req,res,next){
+app.use('/hom', function(req,res,next){
   console.log('%s %s', req.method, req.url);
   next()
 })
