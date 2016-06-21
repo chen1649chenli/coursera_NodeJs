@@ -22,6 +22,7 @@ var server = http.createServer(function(req, res){
         	return;
           }
           res.writeHead(200, { 'Content-Type': 'text/html' });
+          console.log("absolute path is " + filePath);
           fs.createReadStream(filePath).pipe(res);
               });
     }
