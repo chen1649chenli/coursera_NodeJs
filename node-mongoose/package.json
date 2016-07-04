@@ -1,0 +1,23 @@
+{
+  "name": "node-mongoose",
+  "version": "1.0.0",
+  "description": "practice mongoose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chen1649chenli/coursera_NodeJs.git"
+  },
+  "author": "Li Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chen1649chenli/coursera_NodeJs/issues"
+  },
+  "homepage": "https://github.com/chen1649chenli/coursera_NodeJs#readme",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "mongoose": "^4.5.3"
+  }
+}
