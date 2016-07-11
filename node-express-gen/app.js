@@ -1,4 +1,3 @@
-
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -8,29 +7,31 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var dishRouter= require('./routes/dishRouter');
-//var promoRouter = require('./routes/promoRouter');
+var dishRouter = require('./routes/dishRouter');
+var promoRouter = require('./routes/promoRouter');
 var leaderRouter = require('./routes/leaderRouter');
 
-
 var app = express();
-
+var hostname = 'localhost';
+var port = 3000;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
 app.use('/dishes',dishRouter);
-//app.use('/promotions',promoRouter);
+app.use('/promotions',promoRouter);
 app.use('/leadership',leaderRouter);
 
 // catch 404 and forward to error handler
@@ -41,7 +42,6 @@ app.use(function(req, res, next) {
 });
 
 // error handlers
-
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
@@ -64,5 +64,11 @@ app.use(function(err, req, res, next) {
   });
 });
 
+
+app.use(express.static(__dirname + '/public'));
+
+app.listen(port, hostname, function(){
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
 
 module.exports = app;
